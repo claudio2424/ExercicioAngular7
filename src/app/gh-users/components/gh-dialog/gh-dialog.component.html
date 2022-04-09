@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Dados de {{username}}</h2>
+<div mat-dialog-content>
+   <mat-progress-spinner
+       color="accent"
+       mode="indeterminate"
+       *ngIf="user == null; else content"
+       ></mat-progress-spinner>
+
+       <ng-template #content>
+           <a [href]="user?.html_url" target="_blank">
+               {{ user?.name }}
+           </a>
+       </ng-template>
+
+   
+    
+    <div >
+        <p><mat-icon>account_box</mat-icon> Login: {{user?.login}}</p>
+        <p><mat-icon>android</mat-icon> Nome: {{user?.name}} </p>
+        <p><mat-icon>account_balance</mat-icon> Localização: {{user?.location}} pessoas.</p>
+        <p><mat-icon>book</mat-icon> Biografia: {{user?.bio}}</p>
+
+        <h2>Repositorio</h2>
+        <mat-card *ngFor="let repos of repor">
+            <div class="div">{{repos?.full_name}}<br></div>
+            <div class="div">{{repos?.location}}<br></div>
+            <div class="div">{{repos?.html_url}}<br></div>
+            <div class="div">{{repos?.bio}}<br></div>
+            <div class="div">{{repos?.login}}<br></div>
+            </mat-card>
+    </div>
+</div>
+         
+
+
+
+
+
+       
+      
+
